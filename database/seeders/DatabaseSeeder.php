@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Client;
+use App\Models\Lists;
 use App\Models\StatusWhatsapp;
 use App\Models\Template;
 use App\Models\User;
@@ -64,6 +65,20 @@ class DatabaseSeeder extends Seeder
             'name' => 'hello_world',
         ]);
 
+        Lists::create([
+            'client_id' => Client::first()->id,
+            'text_header' => fake()->name(),
+            'text_body' => fake()->name(),
+            'text_footer' => fake()->name(),
+            'text_button'=> fake()->name(),
+            'title'=>fake()->title(),
+            'body'=> [
+                'id'=> fake()->name.fake()->numberBetween(1,5555),
+                'title'=> fake()->title(),
+                'description'=> fake()->title()
+            ],
+        ]);
+
         for ($i = 0, $ii = 3; $i < $ii; $i++) {
             Client::create([
                 'name' => $fakers->name(),
@@ -95,6 +110,20 @@ class DatabaseSeeder extends Seeder
             Template::create([
                 'client_id' => $fakers->randomElement(Client::where('name', '!=', 'admin')->pluck('id')->toArray()),
                 'name' => 'hello_world',
+            ]);
+
+            Lists::create([
+                'client_id' => $fakers->randomElement(Client::where('name', '!=', 'admin')->pluck('id')->toArray()),
+                'text_header' => fake()->name(),
+                'text_body' => fake()->name(),
+                'text_footer' => fake()->name(),
+                'text_button'=> fake()->name(),
+                'title'=>fake()->title(),
+                'body'=> [
+                    'id'=> fake()->name.fake()->numberBetween(1,5555),
+                    'title'=> fake()->title(),
+                    'description'=> fake()->title()
+                ],
             ]);
         }
 

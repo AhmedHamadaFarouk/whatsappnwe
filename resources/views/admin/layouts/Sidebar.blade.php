@@ -29,8 +29,9 @@
                 </a>
                 <ul id="elements" class="collapse" data-parent="#sidebarnav">
                     <li><a href="{{route('templates.index')}}">اضافه اسم القالب</a></li>
-                    <li><a href="alerts.html">اضافه ازرار </a></li>
+
                     <li><a href="button.html">اضافه قائمه</a></li>
+                    <li><a href="alerts.html">اضافه ازرار </a></li>
                     <li><a href="colorpicker.html">اضافه الرد</a></li>
 {{--                    <li><a href="dropdown.html">Dropdown</a></li>--}}
 {{--                    <li><a href="lists.html">lists</a></li>--}}
